@@ -1,0 +1,27 @@
+{% extends 'block.html'%}
+
+{% block content %}
+<body>
+    <h1>{{seat_type}}</h1>
+    {% if list %}
+
+            {% for l in list %}
+            <form  action="{% url 'sn' l %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="departure" value="{{ flight.departure }}">
+                <input type="hidden" name="departure_date" value="{{ departure_date }}">
+                <input type="hidden" name="departure_time" value="{{ flight.departure_time }}">
+                <input type="hidden" name="plane_id" value="{{ flight.plane_id }}">
+                <input type="hidden" name="seat_type" value="{{ seat_type }}">
+                <input type="hidden" name="user_id" value="{{ user_id }}">
+                <button type="submit" name="seat_no" value="{{ l }}">{{ l }}</button>
+            </form>
+            {% endfor %}
+    {% endif %}
+</body>
+{% endblock %}
+
+
+
+
+

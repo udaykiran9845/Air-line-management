@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'index.css' %}"/>
+    <title>Indian Eagle - #FlyLikeAnEagle</title>
+</head>
+<body>
+  {% if disable_back_button %}
+    {% if not request.user.is_authenticated %}
+        <script>
+            history.pushState(null, null, location.href);
+            window.onpopstate = function (event) {
+                history.pushState(null, null, location.href);
+                event.preventDefault();
+            };
+        </script>
+    {% endif %}
+  {% endif %}
+
+
+    <nav class="navbar">
+    <!-- Logo part in the Navbar -->
+      <div class="image">
+        <img src="{% static './Images/Airline logo.png' %}" alt="Airline logo"/>
+      </div>
+      <div class="logo">
+        <h2>
+          <span>I</span>ndian
+          <span>E</span>agle
+        </h2>
+      </div>
+    <!--Logo part in the Navbar --> 
+      <div class="menu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Destinations</a></li>
+        </ul>
+      </div>
+    <!-- Login and Register part of Navbar -->  
+      <div class="login-register">
+        <ul>
+          <li><a href="/accounts/login">Login</a></li>
+          <li><a href="/accounts/register">Register</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!--                 Navbar completed                   -->
+    <div class="col-md-7 col-md-offset-1">
+      <div class="booking-form">
+        <form action="{% url 'search_flight' %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="ind" value="{{ ind }}">
+          <input type="hidden" name="user_id" value="{{ user_id }}">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <span class="form-label">Flying from</span>
+                <input class="form-control" type="text" name="from_" placeholder="City or airport">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <span class="form-label">Flyning to</span>
+                <input class="form-control" type="text" name="to_" placeholder="City or airport">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <span class="form-label">Departing</span>
+                <input class="form-control" type="date" name="date_" required>
+              </div>
+            </div>
+          </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <span class="form-label">Travel class</span>
+                <select class="form-control" name="class_">
+                  <option>Economy class</option>
+                  <option>Business class</option>
+                  <option>First class</option>
+                </select>
+                <span class="select-arrow"></span>
+              </div>
+            </div>
+          </div>
+          <div class="form-btn">
+            <button class="submit-btn">Show flights</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</body>
+</html>

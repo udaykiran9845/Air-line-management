@@ -1,0 +1,134 @@
+{% extends 'block.html'%}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Matrix</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'seat.css' %}">
+</head>
+<body>
+    <div class="seat-matrix">
+        <h1>{{seat_type}}</h1>
+        <!-- <hr> -->
+        <div class="seat-info">
+            <div class="info-sq">
+                <div class="square"></div>
+                <p>Available Seat</p>
+            </div>
+            <div class="info-sq">
+                <div class="square emp"></div>
+                
+                <p>Unavailable Seat</p>
+            </div>
+           
+        </div>
+        <div class="col-pattern">
+            {% for l in list4 %}  
+                                {% if l|add:"-1"|divisibleby:6 %}
+                                <div class="row-pattern">
+                                 <div class="left-pattern">  
+                                    <form  action="{% url 'sn' l %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="departure" value="{{ departure }}">
+                                        <input type="hidden" name="departure_date" value="{{ departure_date }}">
+                                        <input type="hidden" name="departure_time" value="{{ departure_time }}">
+                                        <input type="hidden" name="plane_id" value="{{ plane_id }}">
+                                        <input type="hidden" name="seat_type" value="{{ seat_type }}">
+                                        <input type="hidden" name="p_s_n" value="{{ p_s_n }}">
+                                        <input type="hidden" name="p_s_t" value="{{ p_s_t }}">
+                                        <input type="hidden" name="ind" value="{{ ind }}">
+                                        <button class="square" type="submit" name="seat_no" value="{{ l }}" id={{l}}>{{l}}</button>
+                                    </form> 
+                                {% elif l|add:"-2"|divisibleby:6 %}
+                                    <form  action="{% url 'sn' l %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="departure" value="{{ departure }}">
+                                        <input type="hidden" name="departure_date" value="{{ departure_date }}">
+                                        <input type="hidden" name="departure_time" value="{{ departure_time }}">
+                                        <input type="hidden" name="plane_id" value="{{ plane_id }}">
+                                        <input type="hidden" name="seat_type" value="{{ seat_type }}">
+                                        <input type="hidden" name="p_s_n" value="{{ p_s_n }}">
+                                        <input type="hidden" name="p_s_t" value="{{ p_s_t }}">
+                                        <input type="hidden" name="ind" value="{{ ind }}">
+                                        <button class="square" type="submit" name="seat_no" value="{{ l }}" id={{l}}>{{l}}</button>
+                                    </form> 
+                                {% elif l|add:"-3"|divisibleby:6 %}
+                                    <form  action="{% url 'sn' l %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="departure" value="{{ departure }}">
+                                        <input type="hidden" name="departure_date" value="{{ departure_date }}">
+                                        <input type="hidden" name="departure_time" value="{{ departure_time }}">
+                                        <input type="hidden" name="plane_id" value="{{ plane_id }}">
+                                        <input type="hidden" name="seat_type" value="{{ seat_type }}">
+                                        <input type="hidden" name="p_s_n" value="{{ p_s_n }}">
+                                        <input type="hidden" name="p_s_t" value="{{ p_s_t }}">
+                                        <input type="hidden" name="ind" value="{{ ind }}">
+                                        <button class="square" type="submit" name="seat_no" value="{{ l }}" id={{l}}>{{l}}</button>
+                                    </form> 
+                                 </div>  
+                                {% elif l|add:"-4"|divisibleby:6 %}
+                                <div class="right-pattern">
+                                    <form  action="{% url 'sn' l %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="departure" value="{{ departure }}">
+                                        <input type="hidden" name="departure_date" value="{{ departure_date }}">
+                                        <input type="hidden" name="departure_time" value="{{ departure_time }}">
+                                        <input type="hidden" name="plane_id" value="{{ plane_id }}">
+                                        <input type="hidden" name="seat_type" value="{{ seat_type }}">
+                                        <input type="hidden" name="p_s_n" value="{{ p_s_n }}">
+                                        <input type="hidden" name="p_s_t" value="{{ p_s_t }}">
+                                        <input type="hidden" name="ind" value="{{ ind }}">
+                                        <button class="square" type="submit" name="seat_no" value="{{ l }}" id={{l}}>{{l}}</button>
+                                    </form> 
+                                {% elif l|add:"-5"|divisibleby:6 %}
+                                    <form  action="{% url 'sn' l %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="departure" value="{{ departure }}">
+                                        <input type="hidden" name="departure_date" value="{{ departure_date }}">
+                                        <input type="hidden" name="departure_time" value="{{ departure_time }}">
+                                        <input type="hidden" name="plane_id" value="{{ plane_id }}">
+                                        <input type="hidden" name="seat_type" value="{{ seat_type }}">
+                                        <input type="hidden" name="p_s_n" value="{{ p_s_n }}">
+                                        <input type="hidden" name="p_s_t" value="{{ p_s_t }}">
+                                        <input type="hidden" name="ind" value="{{ ind }}">
+                                        <button class="square" type="submit" name="seat_no" value="{{ l }}" id={{l}}>{{l}}</button>
+                                    </form> 
+                                {% else %}
+                                    <form  action="{% url 'sn' l %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="departure" value="{{ departure }}">
+                                        <input type="hidden" name="departure_date" value="{{ departure_date }}">
+                                        <input type="hidden" name="departure_time" value="{{ departure_time }}">
+                                        <input type="hidden" name="plane_id" value="{{ plane_id }}">
+                                        <input type="hidden" name="seat_type" value="{{ seat_type }}">
+                                        <input type="hidden" name="p_s_n" value="{{ p_s_n }}">
+                                        <input type="hidden" name="p_s_t" value="{{ p_s_t }}">
+                                        <input type="hidden" name="ind" value="{{ ind }}">
+                                        <button class="square" type="submit" name="seat_no" value="{{ l }}" id={{l}}>{{l}}</button>
+                                    </form> 
+                                </div>
+                                </div>
+                                {% endif %}
+                            
+            {% endfor %}
+        </div>
+    </div>
+</body>
+<script>
+    var my_list = JSON.parse('{{ list|safe }}')
+    for(var i=0;i<my_list.length;i++){
+        const ele=document.getElementById(`${my_list[i]}`);
+        ele.classList.add('emp');
+    }
+</script>
+</html>
+{% endblock %}

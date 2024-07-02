@@ -1,0 +1,141 @@
+
+{% extends 'block.html'%}
+
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'info.css' %}">
+    <script>
+        function myfun(event) {
+            event.preventDefault();
+
+            var input11 = document.getElementById("input11").value;
+            var pay = document.getElementById("pay-btn");
+
+            if(input11)
+            {
+                  $('#mymodal1').modal('show');
+            }
+            else
+            {
+                alert('Please fill the details');
+                pay.setAttribute('data-bs-dismiss','false');
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="info">
+        {% if ind == 1 %}
+        <h1>All Available Flights</h1>
+        <hr>
+        {% else %}
+        <h1>Sorry! no flights are available</h1>
+        {% endif %}
+        <!--Add for loop for below content-->
+        {% for f in flight %}
+        <div class="flight-info">
+            <div class="from-to">
+                <h3>
+                    {{ f.departure }}
+                    <span>{{f.departure_date}}</span>
+                    <span>{{f.departure_time}}</span>
+                </h3>
+                <img src="{% static 'Images/airplane-fill.svg' %}" alt="arrow">
+                <h3>
+                    {{f.destination}}
+                    <span>{{f.arrival_date}}</span>
+                    <span>{{f.arrival_time}}</span>
+                </h3>
+            </div>
+            <h3>Plane ID: <span>{{f.plane_id}}</span></h3>
+            <h3>Plane Type: <span>{{f.type}}</span></h3>
+            <h3>Economy Class available seats: <span>{{f.e_as}}   (&#8377; {{f.e_c}})</span></h3>
+            <h3>Business Class available seats: <span>{{f.b_as}}   (&#8377; {{f.b_c}})</span></h3>
+            <h3>First Class available seats: <span>{{f.f_as}}   (&#8377; {{f.f_c}})</span></h3>
+            <form action="{% url 'my'%}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="departure" value="{{ f.departure }}">
+                <input type="hidden" name="departure_date" value="{{ f.departure_date }}">
+                <input type="hidden" name="arrival_date" value="{{ f.arrival_date }}">
+                <input type="hidden" name="departure_time" value="{{ f.departure_time }}">
+                <input type="hidden" name="plane_id" value="{{ f.plane_id }}">
+                <input type="hidden" name="seat_no" value="{{ seat_no }}">
+                <input type="hidden" name="e_c" value="{{ f.e_c }}">
+                <input type="hidden" name="b_c" value="{{ f.b_c }}">
+                <input type="hidden" name="f_c" value="{{f.f_c}}">
+                <input type="hidden" name="stu" value="{{stu}}">
+                <div class="select-class">
+                    <label style="font-size: 1.2rem;font-weight: 600;">Travel Class</label>
+                    <span>: </span>
+                    <select name="select" class="select">
+                        {% if seat_type == 'Economy'%}
+                            {% if f.e_as > 0 %}
+                            <option value="economy">Economy</option>
+                            {% endif %}
+                            {% if f.b_as > 0 %}
+                            <option value="first">First class</option>
+                            {% endif %}
+                            {% if f.f_as > 0 %}
+                            <option value="business">Business</option>
+                            {% endif %}
+                        {% elif seat_type == 'Business' %}
+                            {% if f.f_as > 0 %}
+                            <option value="business">Business</option>
+                            {% endif %}
+                            {% if f.e_as > 0 %}
+                            <option value="economy">Economy</option>
+                            {% endif %}
+                            {% if f.b_as > 0 %}
+                            <option value="first">First class</option>
+                            {% endif %}
+                        {% else %}
+                            
+                            {% if f.b_as > 0 %}
+                            <option value="first">First class</option>
+                            {% endif %}
+                            {% if f.f_as > 0 %}
+                            <option value="business">Business</option>
+                            {% endif %}
+                            {% if f.e_as > 0 %}
+                            <option value="economy">Economy</option>
+                            {% endif %}
+                        {% endif %}
+                    </select>
+                </div>
+                <div class="info-button">
+                    <button type="submit" name="action" value="display">Display Seats</button>
+                    
+                    <button type="submit" name="action" value="book1">Book</button>
+                    
+                </div>
+            </form>
+        </div>
+        {% endfor %}
+        <!--till here-->
+</body>
+
+</html>
+{% endblock %}
+

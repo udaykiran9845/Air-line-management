@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial','sans-serif';
+}
+
+.card {
+    position:absolute;
+    top:calc(20%);
+}
+
+.bg {
+    background-color: navy;
+    color:white
+}
+
+.card-body {
+    background-color: gray;
+}
+
+.button1 {
+    position:absolute;
+    left:calc(70%);
+}
+
+#btn1.btn:hover {
+    background-color: rgb(204, 204, 60);
+}
+
+.button2 {
+    position: absolute;
+    left:calc(85%);
+}
+
+#btn2.btn:hover {
+    background-color: red;
+}
+
+
+

@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', 'sans-serif';
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.Home {
+    position: absolute;
+    top: calc(15%);
+    left: calc(45%);
+}
+
+.Book {
+    position:absolute;
+    top: calc(20%);
+    left:calc(62.5%);
+}
+
+.Logout {
+    position:absolute;
+    top: calc(20%);
+    left:calc(85%);
+}
+
+.main {
+    display: grid;
+    align-items: center;
+    background-image: url("./Images/flight.jpg");
+    object-fit: cover;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#Search-flights.container {
+    background-color: white;
+    text-align: center;
+}
+
+
+

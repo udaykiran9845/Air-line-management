@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family : 'Arial','sans-serif';
+}
+
+body {
+    overflow-x: hidden;
+    background-image: url("./Images/Mumbai.jpg");
+    background-size: cover;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+
+#header.container-fluid {
+    position:absolute;
+    background-color: white;
+    top: calc(10%);
+    width: calc(50%);
+    margin-left: calc(25%);
+    border-radius: calc(5%);
+}
+
+.heading {
+       color: black;
+       text-align:center;
+}
+
+.button {
+    display: grid;
+    justify-content: center;
+}
+
+

@@ -1,0 +1,55 @@
+from django.db import models
+
+# Create your models here.
+
+
+class Tickets(models.Model):
+    #PNR = models.CharField(max_length=100)
+    username = models.CharField(max_length=100)
+    plane_id = models.CharField(max_length=100)
+    departure = models.CharField(max_length=100)
+    destination = models.CharField(max_length=100)
+    booked_date = models.DateField()
+    departure_time = models.TimeField()
+    arrival_time = models.TimeField()
+    departure_date = models.DateField()
+    arrival_date = models.DateField()
+    seat_type = models.CharField(max_length=100)
+    seat_no = models.IntegerField()
+    cost = models.FloatField()
+    upi = models.CharField(max_length=100)
+    distance = models.IntegerField()
+
+class currentflight(models.Model):
+    type = models.CharField(max_length=100)
+    departure_date = models.DateField()
+    plane_id = models.CharField(max_length=100)
+    departure = models.CharField(max_length=100)
+    destination = models.CharField(max_length=100)
+    departure_time = models.TimeField()
+    arrival_time = models.TimeField()
+    arrival_date = models.DateField()
+    b_as = models.IntegerField()
+    f_as = models.IntegerField()
+    e_as = models.IntegerField()
+    b_c = models.FloatField()
+    f_c = models.FloatField()
+    e_c = models.FloatField()
+
+class cancelled_tickets(models.Model):
+    #PNR = models.CharField(max_length=100)
+    username = models.CharField(max_length=100)
+    plane_id = models.CharField(max_length=100)
+    departure = models.CharField(max_length=100)
+    destination = models.CharField(max_length=100)
+    booked_date = models.DateField()
+    departure_time = models.TimeField()
+    arrival_time = models.TimeField()
+    departure_date = models.DateField()
+    arrival_date = models.DateField()
+    seat_type = models.CharField(max_length=100)
+    seat_no = models.IntegerField()
+    cost = models.FloatField()
+    upi = models.CharField(max_length=100)
+    truth = models.IntegerField()
+    distance = models.IntegerField()

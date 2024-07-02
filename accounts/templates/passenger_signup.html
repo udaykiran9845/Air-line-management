@@ -1,0 +1,37 @@
+
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<br>
+<div class="container bg-light" style="width:90%; border-radius: 10px;">
+    <br>
+    <b><h1 style="text-align: center; font-family: Arial;">Signup</h1></b>
+    <br>
+    <div class="container" style="width:50%;">
+        <form class="site-form" action="user_accounts/passenger_signup/" method="post">
+            {% csrf_token %}
+            <h5>
+            {{ form.username|as_crispy_field }}
+            {{ form.password1|as_crispy_field }}
+            {{ form.password2|as_crispy_field }}
+            {{ form.phone_number|as_crispy_field }}
+            {{ form.email_id|as_crispy_field }}
+            {{ form.location|as_crispy_field }}
+            </h5>
+            <br>
+            <div class="text-center">
+                <button type="submit" class="btn btn-outline-info" value="Signup">
+                    SignUp
+                </button>
+            </div>
+            <br>
+            <br>
+        </form>
+    </div>
+</div>
+<br>
+<br>
+
+{% endblock %}

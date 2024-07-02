@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'register.css' %}"/>
+    <title>Register Page</title>
+</head>
+<body>
+  <div class="background-image">
+    <div class="form-box">
+      <h1 class="Title">Register</h1>
+      
+      <form action="register" method = "post">
+        {% csrf_token %}
+        <label class="form-details" for="First Name" >Enter Your First Name:</label><br />
+        <input class="form-details styling" type="text" name="first_name" id = "First name" placeholder="First name" required/>
+        <br />
+        <label class="form-details" for="Last Name" >Enter Your Last Name:</label><br />
+        <input class="form-details styling" type="text" name="last_name" id="Last name" placeholder="Last name" required/>
+        <br />
+        <label class="form-details" for="Email Address" >Enter Your Email Address:</label><br />
+        <input class="form-details styling" type="email" name="mail" id="Email Address" placeholder="Email Address" required/>
+        <br />
+        <label class="form-details" for="Username" >Set Your Username:</label><br />
+        <input class="form-details styling" type="text" name="user_id" id="Username" placeholder="Username" required/>
+        <br />
+        <label class="form-details" for="Password" >Set Your Password:</label>
+        <input class="form-details styling" type="password" name="password1" id="Password" placeholder="Password" required/>
+        <br />
+        <label class="form-details" for="Confirm Password" >Confirm Password:</label><br />
+        <input class="form-details styling" type="password" name="password2" id="Confirm Password" placeholder="Confirm Password" required/>
+        <br />
+        <button class="register-btn" type="submit">Register</button>
+      </form>
+      <div>
+        {% for m in messages %}
+        <h3 class="Invalid">{{m}}</h3>
+        {% endfor %}
+      </div>
+  </div>
+</body>
+</html>
+
+

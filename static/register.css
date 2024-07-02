@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:  border-box;
+    font-family: "Tahoma", sans-serif;
+}
+
+body, html {
+    height: 100%;
+}
+
+.background-image {
+    /* The image used */
+    background-image: url("./Images/NewYork.jpg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.form-box {
+    position: relative;
+    top: 2px;
+    left: 15rem;
+    right: 5rem;
+    margin-left: 200px;
+    margin-right: 200px;
+    width: 40%;
+    height: 90%;
+    padding: 80px;
+    background-color: white;
+    border-radius: 10%;
+}
+
+.Title {
+    position: relative;
+    left: 80px;
+    font-size: 45px;
+    bottom: 60px;
+}
+
+.form-details {
+    position: relative;
+    font-size: 16px;
+    bottom: 26px;
+}
+
+label.form-details {
+    font-weight:  bold;
+}
+
+input.styling {
+    position: relative;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 5px;
+}
+
+.register-btn {
+    position: relative;
+    background-color: rgba(1,1,122,1.0);
+    left: 65px;
+    width: 60%;
+    padding: 10px;
+    top: 10px;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.register-btn:hover {
+    background-color: green;
+}
+
+.Invalid {
+    color: red;
+    position: relative;
+    top: 1rem;
+    left: 37%;
+}
+

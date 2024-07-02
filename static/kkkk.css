@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.navbar {
+    background-color: rgb(11, 11, 66);
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.bg {
+    background-color: rgb(11, 11, 66);
+}
+
+.navbar-nav {
+    pointer-events: none;
+  }
+  
+  .navbar-nav:hover {
+    pointer-events: auto;
+  }
+  
+  .nav-link {
+    pointer-events: auto;
+    background-color: transparent;
+  }
+  
+  .nav-link:hover {
+    color: white;
+  }
+
+.Home {
+    position:absolute;
+    top: calc(20%);
+    left: calc(35%);
+    text-decoration: none;
+}
+
+.Destinations {
+    color:rgb(40, 149, 244);
+    position:absolute;
+    top: calc(15%);
+    left: calc(47%);
+    text-decoration: none;
+}
+
+.Destinations:hover {
+    color: white;
+}
+
+.Contacts {
+    color: rgb(40, 149, 244);
+    position:absolute;
+    top: calc(20%);
+    left: calc(60%);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.Contacts:hover {
+    color: white;
+}
+
+.reg {
+    color: rgb(40, 149, 244);
+    position:absolute;
+    top: calc(15%);
+    left: calc(75%);
+    text-decoration: none;
+}
+
+.reg:hover {
+    color: white;
+}
+
+.log {
+    color: rgb(40, 149, 244);
+    position:absolute;
+    top: calc(20%);
+    left: calc(85%);
+    text-decoration: none;
+}
+
+.log:hover {
+    color: white;
+}
+
+.main {
+    display: grid;
+    align-items: center;
+    background-image: url('./Images/Maldives.jpg');
+    height: 100vh;
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#Search-flights.container {
+    background-color: white;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
